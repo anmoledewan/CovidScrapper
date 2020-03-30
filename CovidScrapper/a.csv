@@ -1,0 +1,29 @@
+"","S..No.","Name.of.State...UT","Total.Confirmed.cases..","Cured.Discharged.Migrated","Death"
+"1","1","Andhra Pradesh",19,1,0
+"2","2","Andaman and Nicobar Islands",9,0,0
+"3","3","Bihar",11,0,1
+"4","4","Chandigarh",8,0,0
+"5","5","Chhattisgarh",7,0,0
+"6","6","Delhi",49,6,2
+"7","7","Goa",5,0,0
+"8","8","Gujarat",58,1,5
+"9","9","Haryana",33,17,0
+"10","10","Himachal Pradesh",3,0,1
+"11","11","Jammu and Kashmir",31,1,2
+"12","12","Karnataka",76,5,3
+"13","13","Kerala",182,15,1
+"14","14","Ladakh",13,3,0
+"15","15","Madhya Pradesh",30,0,2
+"16","16","Maharashtra",186,25,6
+"17","17","Manipur",1,0,0
+"18","18","Mizoram",1,0,0
+"19","19","Odisha",3,0,0
+"20","20","Puducherry",1,0,0
+"21","21","Punjab",38,1,1
+"22","22","Rajasthan",55,3,0
+"23","23","Tamil Nadu",49,4,1
+"24","24","Telengana",66,1,1
+"25","25","Uttarakhand",7,2,0
+"26","26","Uttar Pradesh",65,11,0
+"27","27","West Bengal",18,0,1
+"28","Total number of confirmed cases in India","Total number of confirmed cases in India",1024,96,27
