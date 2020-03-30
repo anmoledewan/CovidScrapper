@@ -1,4 +1,4 @@
-
+library(readr)
 library(rvest)
 webpage <- read_html("https://www.mohfw.gov.in/#cases")
 tbls <- html_nodes(webpage, "table")
@@ -17,10 +17,11 @@ indiaData=df
 confirmed=indiaData[,c(2,3)]
 names(confirmed)[ncol(confirmed)-1]="States"
 names(confirmed)[ncol(confirmed)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
-confold=read.csv("india_confirmed_covid.csv")
+confold=read_csv("india_confirmed_covid.csv")
 if(mean(confold[,ncol(confold)]==confirmed[,ncol(confirmed)])!=1){
   
-  confirmed=cbind(read.csv("india_confirmed_covid.csv"),confirmed[,2])
+  confirmed=cbind(read_csv("india_confirmed_covid.csv"),confirmed[,2])
+  names(confirmed)[ncol(confirmed)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
   write.csv(confirmed,file = "india_confirmed_covid.csv")  
 }
 
@@ -28,19 +29,25 @@ if(mean(confold[,ncol(confold)]==confirmed[,ncol(confirmed)])!=1){
 deaths=indiaData[,c(2,5)]
 names(deaths)[ncol(deaths)-1]="States"
 names(deaths)[ncol(deaths)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
-confold=read.csv("india_death_covid.csv")
+confold=read_csv("india_death_covid.csv")
 if(mean(confold[,ncol(confold)]==deaths[,ncol(deaths)])!=1){
-deaths=cbind(read.csv("india_death_covid.csv"),deaths[,2])
+  
+deaths=cbind(read_csv("india_death_covid.csv"),deaths[,2])
+names(deaths)[ncol(deaths)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
 write.csv(deaths,file = "india_death_covid.csv")
 }
 
 recovered=indiaData[,c(2,4)]
 names(recovered)[ncol(recovered)-1]="States"
 names(recovered)[ncol(recovered)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
-confold=read.csv("india_recovered_covid.csv")
+confold=read_csv("india_recovered_covid.csv")
 if(mean(confold[,ncol(confold)]==recovered[,ncol(recovered)])!=1){
-recovered=cbind(read.csv("india_recovered_covid.csv"),recovered[,2])
+  
+recovered=cbind(read_csv("india_recovered_covid.csv"),recovered[,2])
+names(recovered)[ncol(recovered)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
 write.csv(recovered,file = "india_recovered_covid.csv")
 }
 
-
+write.csv(read_csv("india_recovered_covid.csv")[,-c(1,2)],file = "india_recovered_covid.csv")
+write.csv(read_csv("india_death_covid.csv")[,-c(1,2)],file = "india_death_covid.csv")
+write.csv(read_csv("india_confirmed_covid.csv")[,-c(1,2)],file = "india_confirmed_covid.csv")
