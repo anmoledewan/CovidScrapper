@@ -1,29 +1,29 @@
-"","States","2020-03-29 19:30:00","2020-03-30 11:11:45"
-"1","Andhra Pradesh",19,19
-"2","Andaman and Nicobar Islands",9,9
-"3","Bihar",11,11
-"4","Chandigarh",8,8
-"5","Chhattisgarh",7,7
-"6","Delhi",49,53
-"7","Goa",5,5
-"8","Gujarat",58,58
-"9","Haryana",33,33
-"10","Himachal Pradesh",3,3
-"11","Jammu and Kashmir",31,31
-"12","Karnataka",76,80
-"13","Kerala",182,194
-"14","Ladakh",13,13
-"15","Madhya Pradesh",30,33
-"16","Maharashtra",186,193
-"17","Manipur",1,1
-"18","Mizoram",1,1
-"19","Odisha",3,3
-"20","Puducherry",1,1
-"21","Punjab",38,38
-"22","Rajasthan",55,57
-"23","Tamil Nadu",49,50
-"24","Telengana",66,69
-"25","Uttarakhand",7,7
-"26","Uttar Pradesh",65,75
-"27","West Bengal",18,19
-"28","Total number of confirmed cases in India",1024,1071
+"","States","2020-03-29 19:30:00","2020-03-30 11:11:45","2020-03-30 21:30:00"
+"1","Andhra Pradesh",19,19,23
+"2","Andaman and Nicobar Islands",9,9,9
+"3","Bihar",11,11,15
+"4","Chandigarh",8,8,8
+"5","Chhattisgarh",7,7,7
+"6","Delhi",49,53,87
+"7","Goa",5,5,5
+"8","Gujarat",58,58,69
+"9","Haryana",33,33,36
+"10","Himachal Pradesh",3,3,3
+"11","Jammu and Kashmir",31,31,48
+"12","Karnataka",76,80,83
+"13","Kerala",182,194,202
+"14","Ladakh",13,13,13
+"15","Madhya Pradesh",30,33,47
+"16","Maharashtra",186,193,198
+"17","Manipur",1,1,1
+"18","Mizoram",1,1,1
+"19","Odisha",3,3,3
+"20","Puducherry",1,1,1
+"21","Punjab",38,38,38
+"22","Rajasthan",55,57,59
+"23","Tamil Nadu",49,50,67
+"24","Telengana",66,69,71
+"25","Uttarakhand",7,7,7
+"26","Uttar Pradesh",65,75,82
+"27","West Bengal",18,19,22
+"28","Total number of confirmed cases in India",1024,1071,1251
