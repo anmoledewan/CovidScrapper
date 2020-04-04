@@ -20,10 +20,21 @@ updateIndiafromMinistry = function(string){
   
   
   df=data.frame(tbls_ls[[1]])
+  y=  grep("Remaining", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  y=  grep("States wise", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  
   indiaData=df
-  indiaData$Total.Confirmed.cases=as.numeric(gsub("\\D", "", indiaData$Total.Confirmed.cases))
-  indiaData$Cured.Discharged.Migrated=numextract(as.numeric(indiaData$Cured.Discharged.Migrated))
-  indiaData$Death=numextract(as.numeric(indiaData$Death))
+  indiaData[,3]=as.numeric(gsub("\\D", "", indiaData[,3]))
+  indiaData[,4]=numextract(as.numeric(indiaData[,4]))
+  indiaData[,5]=numextract(as.numeric(indiaData[,5]))
   
   confirmed=indiaData[,c(2,3)]
   names(confirmed)[ncol(confirmed)-1]="States"
@@ -66,21 +77,28 @@ updateIndiafromMinistry = function(string){
     
   }
   
+  
+  
   df1=read_csv("india_recovered_covid.csv")[,-c(1)]
+  
   x <- as.character(df1$States) %in% "Total number of confirmed cases in India"
+  
   df1=rbind(df1[!x,], df1[x,])
+
   names(df1)[ncol(df1)]=updatetime
   write.csv(df1,file = "india_recovered_covid.csv")
   
   df1=read_csv("india_death_covid.csv")[,-c(1)]
   x <- as.character(df1$States) %in% "Total number of confirmed cases in India"
   df1=rbind(df1[!x,], df1[x,])
+
   names(df1)[ncol(df1)]=updatetime
   write.csv(df1,file = "india_death_covid.csv")
   
   df1=read_csv("india_confirmed_covid.csv")[,-c(1)]
   x <- as.character(df1$States) %in% "Total number of confirmed cases in India"
   df1=rbind(df1[!x,], df1[x,])
+  
   names(df1)[ncol(df1)]=updatetime
   write.csv(df1,file = "india_confirmed_covid.csv")
 }
