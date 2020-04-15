@@ -14,10 +14,7 @@ updateIndiafromMinistry = function(string){
   tbls_ls <- webpage %>%
     html_nodes("table") %>%
     html_table(fill = TRUE)
-  
-  #dateinfo=html_nodes(webpage, xpath = "//div[@class='content newtab']")[[1]]
-  #dateinfo%>%html_nodes("p") %>% html_text()
-  
+
   
   df=data.frame(tbls_ls[[1]])
   y=  grep("Remaining", df[,2])
@@ -31,7 +28,14 @@ updateIndiafromMinistry = function(string){
     df=df[-y,]
   }
   
+  y=  grep("shifted", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  
   indiaData=df
+  #indiaData[,2]=as.character(gsub("^[A-z]", "", indiaData[,2]))
   indiaData[,3]=as.numeric(gsub("\\D", "", indiaData[,3]))
   indiaData[,4]=numextract(as.numeric(indiaData[,4]))
   indiaData[,5]=numextract(as.numeric(indiaData[,5]))
