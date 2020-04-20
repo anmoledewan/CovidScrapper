@@ -33,6 +33,13 @@ updateIndiafromMinistry = function(string){
   if(length(y)!=0){
     df=df[-y,]
   }
+  y=  grep("figures", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  
+  
   
   indiaData=df
   #indiaData[,2]=as.character(gsub("^[A-z]", "", indiaData[,2]))
