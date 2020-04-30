@@ -69,7 +69,7 @@ updateIndiafromMinistry = function(string){
   confold=read_csv("india_confirmed_covid.csv")[,-1]
   confold
   
-    confirmed=merge(x = confold, y = confirmed, by = "States", all.y = TRUE)
+    confirmed=merge(x = confold, y = confirmed, by = "States", all = TRUE)
     confirmed[is.na(confirmed)] <- 0
     names(confirmed)[ncol(confirmed)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
     #confirmed
@@ -84,7 +84,7 @@ updateIndiafromMinistry = function(string){
   confold=read_csv("india_death_covid.csv")[,-1]
   
     
-    deaths=merge(x = confold, y = deaths, by = "States", all.y = TRUE)
+    deaths=merge(x = confold, y = deaths, by = "States", all = TRUE)
     deaths[is.na(deaths)] <- 0
     names(deaths)[ncol(deaths)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
     write.csv(deaths,file = "india_death_covid.csv")
@@ -96,7 +96,7 @@ updateIndiafromMinistry = function(string){
   names(recovered)[ncol(recovered)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
   confold=read_csv("india_recovered_covid.csv")[,-1]
     
-    recovered=merge(x = confold, y = recovered, by = "States", all.y = TRUE)
+    recovered=merge(x = confold, y = recovered, by = "States", all = TRUE)
     recovered[is.na(recovered)] <- 0
     names(recovered)[ncol(recovered)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
     write.csv(recovered,file = "india_recovered_covid.csv")
