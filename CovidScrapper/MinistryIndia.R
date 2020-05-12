@@ -53,12 +53,17 @@ updateIndiafromMinistry = function(string){
   if(length(y)!=0){
     df=df[-y,]
   }
-  y=  grep("cases", df[,2])
+  y=  grep("Nationals", df[,2])
   str(y)
   if(length(y)!=0){
     df=df[-y,]
   }
   y=  grep("foreign", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  y=  grep("more", df[,2])
   str(y)
   if(length(y)!=0){
     df=df[-y,]
