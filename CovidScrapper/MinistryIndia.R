@@ -122,7 +122,7 @@ updateIndiafromMinistry = function(string){
   
   df1=read_csv("india_recovered_covid.csv")[,-c(1)]
   
-  x <- as.character(df1$States) %in% "Total number of confirmed cases in India"
+  x <- as.character(df1$States) %in% "Total"
   
   df1=rbind(df1[!x,], df1[x,])
 
@@ -130,14 +130,14 @@ updateIndiafromMinistry = function(string){
   write.csv(df1,file = "india_recovered_covid.csv")
   
   df1=read_csv("india_death_covid.csv")[,-c(1)]
-  x <- as.character(df1$States) %in% "Total number of confirmed cases in India"
+  x <- as.character(df1$States) %in% "Total"
   df1=rbind(df1[!x,], df1[x,])
 
   names(df1)[ncol(df1)]=updatetime
   write.csv(df1,file = "india_death_covid.csv")
   
   df1=read_csv("india_confirmed_covid.csv")[,-c(1)]
-  x <- as.character(df1$States) %in% "Total number of confirmed cases in India"
+  x <- as.character(df1$States) %in% "Total"
   df1=rbind(df1[!x,], df1[x,])
   
   names(df1)[ncol(df1)]=updatetime
