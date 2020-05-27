@@ -9,14 +9,15 @@ numextract <- function(string){
 } 
 
 updateIndiafromMinistry = function(string){
-  webpage <- read_html("https://www.mohfw.gov.in/#cases")
+  webpage <- read_html("https://www.moneycontrol.com/news/india/coronavirus-cases-death-count-state-wise-tally-may-26-latest-news-today-maharashtra-most-affected-5312911.html")
+  #webpage <- read_html("https://www.mohfw.gov.in/#cases")
   tbls <- html_nodes(webpage, "table")
   tbls_ls <- webpage %>%
     html_nodes("table") %>%
     html_table(fill = TRUE)
 
   
-  df=data.frame(tbls_ls[[1]])
+  df=data.frame(tbls_ls[[2]])
   y=  grep("Remaining", df[,2])
   str(y)
   if(length(y)!=0){
