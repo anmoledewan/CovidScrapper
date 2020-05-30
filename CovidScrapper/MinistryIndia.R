@@ -9,15 +9,15 @@ numextract <- function(string){
 } 
 
 updateIndiafromMinistry = function(string){
-  webpage <- read_html("https://www.moneycontrol.com/news/trends/health-trends/coronavirus-cases-death-count-state-wise-tally-may-29-latest-news-today-maharashtra-most-affected-5330691.html")
-  #webpage <- read_html("https://www.mohfw.gov.in/#cases")
+  #webpage <- read_html("https://www.moneycontrol.com/news/trends/health-trends/coronavirus-cases-death-count-state-wise-tally-may-29-latest-news-today-maharashtra-most-affected-5330691.html")
+  webpage <- read_html("https://www.mohfw.gov.in/#cases")
   tbls <- html_nodes(webpage, "table")
   tbls_ls <- webpage %>%
     html_nodes("table") %>%
     html_table(fill = TRUE)
 
   
-  df=data.frame(tbls_ls[[2]])
+  df=data.frame(tbls_ls[[1]])
   y=  grep("Remaining", df[,2])
   str(y)
   if(length(y)!=0){
@@ -79,8 +79,9 @@ updateIndiafromMinistry = function(string){
   indiaData[,3]=as.numeric(gsub("\\D", "", indiaData[,3]))
   indiaData[,4]=numextract(as.numeric(indiaData[,4]))
   indiaData[,5]=numextract(as.numeric(indiaData[,5]))
+  indiaData[,6]=numextract(as.numeric(indiaData[,6]))
   
-  confirmed=indiaData[,c(2,3)]
+  confirmed=indiaData[,c(2,6)]
   names(confirmed)[ncol(confirmed)-1]="States"
   names(confirmed)[ncol(confirmed)]=trimws(format(as.POSIXlt(Sys.time()),tz = "Asia/Calcutta"), which = c("both"))
   confold=read_csv("india_confirmed_covid.csv")[,-1]
