@@ -9,7 +9,7 @@ numextract <- function(string){
 } 
 
 updateIndiafromMinistry = function(string){
-  #webpage <- read_html("https://www.moneycontrol.com/news/trends/health-trends/coronavirus-cases-death-count-state-wise-tally-may-29-latest-news-today-maharashtra-most-affected-5330691.html")
+  #webpage <- read_html("https://www.moneycontrol.com/news/india/coronavirus-cases-death-count-state-wise-tally-june-18-latest-news-today-maharashtra-most-affected-5420381.html")
   webpage <- read_html("https://www.mohfw.gov.in/#cases")
   tbls <- html_nodes(webpage, "table")
   tbls_ls <- webpage %>%
