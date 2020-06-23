@@ -1,6 +1,6 @@
 
 source("MinistryIndia.R")
-updatetime="June 21, 2020 08:00 hrs"
+updatetime="June 23, 2020 08:00 hrs"
 updateIndiafromMinistry(updatetime)
 
 
