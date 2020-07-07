@@ -10,14 +10,14 @@ numextract <- function(string){
 
 updateIndiafromMinistry = function(string){
   
-  #webpage <- read_html("https://www.mohfw.gov.in/#cases")
+  webpage <- read_html("https://www.mohfw.gov.in/#cases")
   tbls <- html_nodes(webpage, "table")
   tbls_ls <- webpage %>%
     html_nodes("table") %>%
     html_table(fill = TRUE)
 
   
-  df=data.frame(tbls_ls[[2]])
+  df=data.frame(tbls_ls[[1]])
   y=  grep("Remaining", df[,2])
   str(y)
   if(length(y)!=0){
@@ -70,6 +70,16 @@ updateIndiafromMinistry = function(string){
     df=df[-y,]
   }
   y=  grep("ICMR", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  y=  grep("Name", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  y=  grep("distribution", df[,2])
   str(y)
   if(length(y)!=0){
     df=df[-y,]
