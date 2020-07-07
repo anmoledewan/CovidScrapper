@@ -74,6 +74,16 @@ updateIndiafromMinistry = function(string){
   if(length(y)!=0){
     df=df[-y,]
   }
+  y=  grep("distribution", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
+  y=  grep("Name", df[,2])
+  str(y)
+  if(length(y)!=0){
+    df=df[-y,]
+  }
   
   
   
